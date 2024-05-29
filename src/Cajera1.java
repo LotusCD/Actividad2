@@ -1,6 +1,4 @@
-
-public class Cajera1 extends Thread{
-    
+public class Cajera1 extends Thread {
     private String nombre;
     private ClienteProducto cliente;
 
@@ -9,8 +7,7 @@ public class Cajera1 extends Thread{
         this.cliente = cliente;
     }
 
-    
-@Override
+    @Override
     public void run() {
         System.out.println(nombre + " comienza a procesar la compra de " + cliente.getNombre());
         for (Producto producto : cliente.getProductos()) {
@@ -21,15 +18,8 @@ public class Cajera1 extends Thread{
                 Thread.currentThread().interrupt();
             }
         }
-        
-        System.out.println(nombre + " terminó de procesar la compra de " + cliente.getNombre() + ". Total a pagar: $" );
+        double total = cliente.totalCompra();
+        System.out.println(nombre + " terminó de procesar la compra de " + cliente.getNombre() + ". Total a pagar: $" + total);
     }
 }
 
-    
-    
-    
-    
-    
-    
-}
